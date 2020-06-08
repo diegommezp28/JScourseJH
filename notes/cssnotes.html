@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<htm lang="es">
+    <head>
+        <title>
+            CSS Notes
+        </title>
+        <link rel="stylesheet" href="cssnotesstyle.css">
+    </head>
+    <body>
+        <h1>
+            Notas de CSS
+        </h1>
+        <hr>
+        <section>
+            <h2>
+                Anatomía de una Regla CSS
+            </h2>
+            <p>
+                Una regla en css está compuesta de 3 partes:
+                &NewLine;&NewLine;
+                <ol>
+                    <li id=Selector>
+                        Selector
+                    </li>
+                    <li>
+                        Brackets
+                    </li>
+                    <li>
+                        <a href="#Properties">Rules</a>
+                        <div>
+                            <p>
+                                Estas "rules", o reglas, se pueden pensar como combinaciones Key: values. Aunque a estas llaves,  
+                                en el contexto de CSS, se les conoce como Propiedades y cada una tiene una lista de valores que puede tomar. 
+                                Una propiedad, en forma general puede tomar más de un valor, siendo la sintaxis general:     CSSProperty: Value1 Value2 ... ValueN;
+                            </p>
+                        </div>
+                    </li>
+                </ol>
+                &NewLine;&NewLine;
+                Por ejemplo: .a{ Color: Solid Black;}. ".a" es el selector; "Color" es la propiedad y "Solid Black" son los valores asignados a esta propiedad.
+                <div>
+                    Esta regla lo que hará será poner negro el texto de todas las tags con Class= "a"
+                </div>
+            </p>
+        </section>
+        <section>
+            <h2 id="Properties">CSS Properties</h2>
+            <ul>
+                <li>
+                    <a href="https://www.tutorialrepublic.com/css-reference/css3-properties.php" target="_blank">All CSS properties</a>
+                </li>
+                <li>
+                    <a href="https://stackoverflow.com/questions/5612302/which-css-properties-are-inherited" target="_blank">Which propeerties are inheritable</a>
+                </li>
+                <li>
+                    <a href="https://www.w3.org/TR/CSS21/propidx.html" target="_blank">Condense information on Inheritance of properties</a>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h2>
+                <a href="https://www.w3schools.com/css/css_combinators.asp" target="_blank">Selectores</a>
+            </h2>
+            <p>
+                Un selector es la forma que tiene CSS de identificar dentro del código de HTML a cuales etiquetas les aplicara un
+                estilo
+            </p>
+            <div><a href="https://www.w3.org/TR/CSS21/selector.html%23id-selectors" target="_blank">Hay varias clases de selectores.  </a></div>
+            <ul>
+                <li>
+                    Por etiqueta. Ej: div{contenido}
+                </li>
+                <li>
+                    Por clase. Ej: .NombreDeTuClase{contenido}
+                </li>
+                <li>
+                    Por Id. EJ: #NombreDeTuId{Contendio}
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h2>
+                Combinando selectores
+            </h2>
+            <div>Se puede combinar selectores de forma interesantes</div>
+            <ul>
+                <li>
+                    selector, selector, ..., selector{} Aplica el estilo a todos los selectores de la lista
+                </li>
+                <li>
+                    selector1 > selector2 > ... > selectorn{} Aplica el estilo a los selectores tq: Selector N sea hijo directo
+                de Selector n-1               
+                </li>
+                <li>
+                    selector1 selector 2 ... selectorn{} Es una relación de contenencia, se parece a la anterior pero
+                    Selector n no tiene que ser hijo directo de Selector N-1, solo estar contenido en él.
+                </li>
+                <li>
+                    <div>
+                        .Class1.Class2. ... .ClassN{} Se aplica a los elementos que tengan todas las clases anteriores definidas.
+                    </div>
+                    <div>
+                        Nota: En HTML5, class="abc def" define DOS clases para el elemento, una "abc" y otra "def". 
+                    </div>
+                </li>
+
+            </ul>
+        </section>
+        <section>
+            <h2>
+                Pseudo Clases
+            </h2>
+            <ul id="ListaPseudoClases">
+                <li>
+                    Los selectores en CSS pueden tener atributos que simbolizan estados, como, por ejemplo, 'Hover' o 'Active', que solo se activan, respectivamente, si el mouse
+                    está sobre el elemento, o si eres un botón y le diste click al elemento pero no has soltado el click.
+                    La sintaxis es la siguiente: 
+                    <div>
+                        Combinación de selectores:Estado1,Estado2,...,EstadoN{Reglas}
+                    </div>
+                </li>
+
+            </ul>
+        </section>
+        <section>
+            <h2>
+                Conflict Resolution
+            </h2>
+            <div>
+                This definitivamente starts to get nasty
+            </div>
+            <ul>
+                <li>
+                    <span> Conflict Resolution by origin</span>
+                    <div>
+                        La idea es que, primero, las StyleSheets externas se piensan como si estuviesen declaradas dentro de un  &lt;Style&gt;, 
+                         en caso de conflictos entre reglas de distintos Style tags, se escoge la que fue delcarada en el Tag declarado de último
+                    </div>
+                </li>
+                <li>
+                    <span class="BlackBoldText">Merge: </span>
+                    <span> Si varias reglas apuntan al mismo target, pero son reglas distintas, simplemente se aplican todas, ya que estas no entran
+                        en conflicto entre sí
+                    </span>
+                </li>
+                <li>
+                    <span class="BlackBoldText">Inheritance: </span>
+                    <span> Las reglas aplicadas a un elemento heredable también se le aplican a todos su descendientes, incluso si no son hijos 
+                        directos. Las reglas de "Generaciones más jovenes" tienen presedencia sobre las generaciones más antiguas. 
+                        <a href="https://www.w3.org/TR/CSS21/propidx.html" target="_blank">Aquí </a>
+                         Hay una tabla con todas las propiedades y la información sobre si son heredable o no.
+                    </span>
+                </li>
+                <li>
+                    <div class="BaclBoldText">Specificity</div>
+                    <table class="Table">
+                        <tr>
+                            <th>
+                                Style
+                            </th>
+                            <th>
+                                ID
+                            </th>
+                            <th>
+                                # of Classes, Pseudo-Classes, Pseudo-Classes States
+                            </th>
+                            <th>
+                                # of Elementes
+                            </th>
+                        </tr>
+                    </table>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h2>
+                Other topics
+            </h2>
+            <article>
+                <h3>
+                    Box model
+                </h3>
+                <div>
+                    Se tratará el <span style="color: grey;">margin con gris</span>, <span style="color: black;"> el border con negro</span>, 
+                    <span style="color: blue;"> el padding con azul </span>, <span style="color: red;"> y el content con rojo </span>.
+                    <div style="border: 10px solid black; margin: 20px; background-color: blue; color:red; box-shadow: 10px 10px 10px 10px #888888; 
+                    text-align: center;">
+                        Contenido
+                    </div>
+                    <div>
+                        Básicamente todo elemento de HTML es tratado como una caja, con 4 partes: Margin, border, padding y Content. Cada una es self-explanatory, 
+                        pero hay que tenerlas en cuenta a la hora de pensar en nuestro diseño y hay que recordar que muchas veces los browsers ponen valores por defecto
+                        a cada uno de estos elementos, por lo que, incluso si no hemos definido ningún "grosor", aún así pueden verse que ocupan espacio. Por lo que
+                        suele ser buena práctica sobre escibir estos valores si no queremos que el Browwser eliga por nosotros. Para sobreescribir los valores de todos 
+                        los elementos se deben poner en el selector "*{}", ya que si se ponen en body, solo se sobreescribiran los valores que son heredables.
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h3>
+                    Box sizing.
+                </h3>
+                <div>
+                    Por defecto cuando colocamos la altura y ancho de un elemento, lo que se va a restingir es la altura y el ancho del contenido de las cajas.
+                    Por lo que si tenemos Padding, Borders o Margins distintos de 0, las dimensiones totales de nuestra caja será mucho más grandes que las que especificamos. 
+                    Una way around this, es definir una propiedad llamada "box-sizing: border-box". Esta no es heredable por lo que si la queremos para todo el documento tenemos 
+                    que ponerla en el selector " *{}"
+                </div>
+            </article>
+            <article>
+                <h3>
+                    Box overflow
+                </h3>
+                <div>
+                    Si utilizamos un Sizing restringido tanto en altura como en ancho, y colocamos dentro en el contenido algo que supere estas dimensiones, se le llama 
+                    Overflow y hay varias formas de manejarlos
+
+                    <ul>
+                        <li>
+                            <h4> Se puede "Cortar" el contenido y solo mostrar el pedazo que quepa</h4>
+                            <div style="margin: 5px; border: 10px solid black; background-color: blue;
+                             color: white; width: 900px; height: 80px; box-sizing: border-box; overflow:hidden; padding: 5px;">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent dapibus eleifend ipsum, non ornare tortor tempor et. In id pretium ante. Integer ut ullamcorper eros. Aenean ut ligula a dolor pretium lobortis at et dolor. Donec blandit mi eget odio consectetur interdum. Nulla laoreet convallis ipsum vel lacinia. Aliquam arcu justo, tincidunt sed pulvinar vitae, tristique in dolor. Nulla tincidunt eros luctus libero consequat, at vestibulum risus dapibus.
+                            </div>
+                        </li>
+                        <li>
+                            <h4> Se puede boner un scroll bar en la dirección que se necesite</h4>
+                            <div style="margin: 5px; border: 10px solid black; background-color: blue;
+                             color: white; width: 900px; height: 80px; box-sizing: border-box; overflow:auto; padding: 5px;">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent dapibus eleifend ipsum, non ornare tortor tempor et. In id pretium ante. Integer ut ullamcorper eros. Aenean ut ligula a dolor pretium lobortis at et dolor. Donec blandit mi eget odio consectetur interdum. Nulla laoreet convallis ipsum vel lacinia. Aliquam arcu justo, tincidunt sed pulvinar vitae, tristique in dolor. Nulla tincidunt eros luctus libero consequat, at vestibulum risus dapibus.
+                            </div>
+                        </li>
+                        <li>
+                            <h4> Se puede boner un scroll bar en ambas direcciónes</h4>
+                            <div style="margin: 5px; border: 10px solid black; background-color: blue;
+                             color: white; width: 900px; height: 80px; box-sizing: border-box; overflow:scroll; padding: 5px;">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent dapibus eleifend ipsum, non ornare tortor tempor et. In id pretium ante. Integer ut ullamcorper eros. Aenean ut ligula a dolor pretium lobortis at et dolor. Donec blandit mi eget odio consectetur interdum. Nulla laoreet convallis ipsum vel lacinia. Aliquam arcu justo, tincidunt sed pulvinar vitae, tristique in dolor. Nulla tincidunt eros luctus libero consequat, at vestibulum risus dapibus.
+                            </div>
+                        </li>
+                        <li>
+                            <h4> Se puede ignorar esto y dejar que el overflow ocurra</h4>
+                            <div style="margin: 5px; border: 10px solid black; background-color: blue;
+                             color: white; width: 900px; height: 80px; box-sizing: border-box; overflow:visible; padding: 0px;">
+                               <div style="background-color: blue;">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent dapibus eleifend ipsum, non ornare tortor tempor et. In id pretium ante. Integer ut ullamcorper eros. Aenean ut ligula a dolor pretium lobortis at et dolor. Donec blandit mi eget odio consectetur interdum. 
+                                Nulla laoreet convallis ipsum vel lacinia. Aliquam arcu justo, tincidunt sed pulvinar vitae, tristique in dolor. Nulla tincidunt eros luctus libero consequat, at vestibulum risus dapibus. Mauris rutrum maximus ultrices. Vivamus venenatis, dui et efficitur accumsan, ipsum urna varius nunc, vel dictum massa velit quis quam. Sed eu ornare nunc.
+                               </div>
+                            </div>
+                            <div> .</div><div> .</div>
+                            <div>
+                                En la aopción anterior se uso un div adicional en el contenido para que el overflow también pintara el Background y fuera
+                                más fácil de ver
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </article>
+        </section>
+    </body>
+
+</html>

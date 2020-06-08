@@ -5,6 +5,29 @@
         <title>
             Recursos electrónicos
         </title>
+        <style>
+            h1{
+                text-align: center;
+            }
+            a{
+                color: black;
+            }
+            .blue.red{ /*Un elemento con clase 'blue' Y TAMBIÉN clase 'red'*/
+                color:blue;
+            }
+            #Duro_pal_footer{
+                text-align: center;
+            }
+            a.git{
+                color: blueviolet;
+            }
+            li > ul > li > a{ /* Solo a los a hijos de li que sean hijos de ul hijos de li*/
+            /* Esto también aplica para ids y clases. Si lo escribes sin '>', son los descendiente, no solo hijos 
+            directos. ej: element p{} va a buscar todos los p con ancestros elements de cualquier nivel*/
+                text-align: center;
+                color: crimson;
+            }
+        </style>
     </head>
     <body>
         <h1>
@@ -12,9 +35,10 @@
         </h1>
         <hr>
         <br>
-        <ul>
+        <ul class="blue red"> <!--El nombre de esta clase NO ES 'blue red', ahí definimos DOS CLASES que 
+        aplican a este elemente, una 'blue' y otra 'red'-->
             <li>
-                <a href="https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control" target="_blank">
+                <a href="https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control" target="_blank" class="git">
                     Git Book</a>
             </li>
             <li>
@@ -52,5 +76,23 @@
                     </ul>
             </li>
         </ul>
+        <table> 
+            <thead>
+                
+            </thead>
+            <tbody>
+                <tr>
+                    
+                </tr>
+            </tbody>
+            <tfoot>
+
+            </tfoot>
+        </table>
     </body>
+    <footer>
+        <footer id="Duro_pal_footer">
+            &copy; All Copyrights Reserved <!--Pilla el simbolito del Copyright-->
+        </footer>
+    </footer>
 </html>

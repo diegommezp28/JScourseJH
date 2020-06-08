@@ -1,0 +1,19 @@
+h1{
+    text-align: center;
+}
+#Selector:hover {
+    background-color: black;
+    color: white;
+    font-weight: bolder;
+    font-family: Arial;
+}
+.BlackBoldText {
+    color: black;
+    font-family: Helvetica;
+    font-weight: bolder;
+}
+table, th{
+    border: 1px solid black;
+    color: greenyellow;
+    border-collapse: collapse;
+}
